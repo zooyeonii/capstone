@@ -1,0 +1,58 @@
+<!doctype html> 
+<html>
+<head>
+  <title>capstone_design_03</title>
+ <meta charset="utf-8">
+</head>
+<div id="header" style="text-align:center; background-color:#F5ECCE; padding:50px; margin:30px;">
+<font size=20><strong>사서 고생하지마~</strong></font></div>
+
+<div id="menu" style="background-color:white; height:500px;width:200px;float:left; border-right: 2px solid #F5ECCE;" >
+	<li><a href="main01.html"><font size=4; style="margin-left:30px;"><strong>1. 메인화면</strong></font></a></li>
+    <p><li><a href="scan02.html"><font size=4; style="margin-left:30px;"><strong>2. Scan 시작하기</strong></font></a></li></p>
+    <p><li><a href="db03.html"><font size=4; style="margin-left:30px;"><strong>3. DB 조회</strong></font></a></li></p>
+    <p><li><a href="result04.html"><font size=4; style="margin-left:30px;"><strong>4. 결과확인</strong></font></a></li></p>
+</div>
+
+<div id="content">
+
+<form method="post" action=book_plus.php>
+	<div>
+		<label for="title">서명</label>
+		<input type="tezt" name="title"/>
+	</div>
+	<div>
+		<label for="id">청구항 기호</label>
+		<input type="text" name="id"/>
+	</div>
+	<div>
+		<label for="location">위치</label>
+		<input type="text" name="location"/>
+	</div>
+	<div>
+		<label for="check_out">대여현황</label>
+		<input type="text" name="check_out"/>
+	</div>
+	<div>
+		<label for="lost">분실현황</label>
+		<input type="text" name="lost"/>
+	</div>
+	<div>
+		<label for="author">저자</label>
+		<input type="text" name="author"/>
+	</div>
+	<div>
+		<label for="publisher">출판사</label>
+		<input type="text" name="publisher"/>
+	</div>
+	<div class = "button">
+		<button type="submit"> 추가 </button>
+	</div>
+</form>
+
+</div>
+
+<div id="footer" style="background-color:#F5ECCE; clear:both; margin:30px;">
+footer
+</div>
+</html>

@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+<head>
+  <title>capstone_design_03</title>
+ <meta charset="utf-8">
+</head>
+
+<div id="header" style="text-align:center; background-color:#F5ECCE; padding:50px; margin:30px;">
+<font size=20><strong>사서 고생하지마~</strong></font></div>
+
+<div id="menu" style="background-color:white; height:500px;width:200px;float:left; border-right: 2px solid #F5ECCE;" >
+	<li><a href="main01.html"><font size=4; style="margin-left:30px;"><strong>1. 메인화면</strong></font></a></li>
+    <p><li><a href="scan02.html"><font size=4; style="margin-left:30px;"><strong>2. Scan 시작하기</strong></font></a></li></p>
+    <p><li><a href="db03.html"><font size=4; style="margin-left:30px;"><strong>3. DB 조회</strong></font></a></li></p>
+    <p><li><a href="result04.html"><font size=4; style="margin-left:30px;"><strong>4. 결과확인</strong></font></a></li></p>
+</div>
+
+<div id="content">
+<div style="text-align:center;"><strong> 분실 도서 목록 </strong></div> 
+<br />
+<style>
+	body{
+		font-family: 10px;
+	}
+	table{
+		width: 70%; 
+		margin-left: auto;
+		margin-right: auto;
+	}
+	th{
+		padding: 10px;
+		border-bottom: 1px solid #dadada;
+	}
+	td{
+		padding: 10px;
+		border-bottom: 1px solid #dadada;
+		text-align : right;
+	}
+</style>
+<body>
+	<table>
+		<thead>
+			<tr>
+				<th>청구항 기호</th>
+				<th>위치</th> 
+			</tr>
+		</thead>
+		<tbody>
+			 
+			
+			
+			<?php
+				$host = 'localhost:3307';
+				$user = 'capstonedesign';
+				$pw = '1234'; 
+				$dbName = 'capstonedesign';
+    
+				$conn = mysqli_connect($host, $user, $pw, $dbName);
+	
+				$sql = "SELECT * FROM bookdb WHERE (bookdb.check_out = 0 AND bookdb.lost = 0) AND (NOT EXISTS 
+(SELECT * FROM scandb WHERE bookdb.ID = scandb.ID))";
+				//쿼리보내고 결과를 변수에 저장
+				$result = mysqli_query($conn, $sql);
+	
+				while($row = mysqli_fetch_array($result & $resultB)){
+					echo '<tr><td>'. $row['ID'] .'</td><td>'. $row['location'] .'</td></tr>';
+				}
+				
+				
+			?>
+
+		</tbody>
+	</table>
+</body>
+
+
+<div id="footer" style="background-color:#F5ECCE; clear:both; margin:30px;">
+footer
+</div>
+</html>
